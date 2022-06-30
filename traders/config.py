@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 from argparse import Namespace
-from typing import NamedTuple
+from dataclasses import dataclass
 
 
-class Config(NamedTuple):
+@dataclass
+class Config:
     pass
 
 
