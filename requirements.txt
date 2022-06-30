@@ -1,2 +1,6 @@
-stable-baselines3>=1.5.0
+numpy>=1.23.0
+pandas>=1.4.3
+plotly>=5.9.0
+ray[rllib,tune,serve]>=1.13.0
 torch>=1.12.0
+wandb>=0.12.20
