@@ -3,5 +3,5 @@ from __future__ import annotations
 import gym
 
 
-class BaseEnvironment(gym.Env):
+class BaseMarketEnvironment(gym.Env):
     virtual: bool = True
