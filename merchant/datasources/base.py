@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+from abc import ABC
 
-class BaseDatasource:
-    realtime: bool = False
+
+class BaseDatasource(ABC):
+    ...
+
+
+class HisoricalDatasource(BaseDatasource):
+    ...

@@ -57,7 +57,7 @@ class LiquidityPool(Asset):
         return self.liquidity
 
 
-class Portfolio:
+class VirtualPortfolio:
     positions: dict[str, Position]
     liquidity: LiquidityPool
 

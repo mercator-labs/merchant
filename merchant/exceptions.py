@@ -15,3 +15,15 @@ class NoPosition(PortfolioException):
 
 class NotEnoughtAssets(PortfolioException):
     pass
+
+
+class MarketError(Exception):
+    pass
+
+
+class FailedToFulfill(MarketError):
+    pass
+
+
+class ActionError(MerchantException):
+    pass
