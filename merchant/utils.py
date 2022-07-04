@@ -4,7 +4,8 @@ from contextlib import contextmanager
 from typing import Generator
 
 import ray
-from traders.config import Config
+
+from merchant.config import Config
 
 
 @contextmanager

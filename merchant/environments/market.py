@@ -12,10 +12,8 @@ import pandas as pd
 
 from merchant.datasources.base import BaseDatasource
 from merchant.datasources.base import HisoricalDatasource
-from merchant.environments.portfolio import VirtualPortfolio
-from merchant.exceptions import FailedToFulfill
-from merchant.exceptions import NoPosition
-from merchant.exceptions import NotEnoughtAssets
+from merchant.environments.portfolio import BasePortfolio
+from merchant.exceptions import OrderDidNotFill
 
 
 class FeePolicy(Protocol):
@@ -39,16 +37,20 @@ class BaseMarket(ABC):
     _symbols: set[Symbol]
     _datasource: BaseDatasource
 
-    @abstractmethod
-    def wait_for_next_tick(self) -> None:
-        ...
-
-    @abstractmethod
-    def market_price(self, symbol: Symbol) -> float:
-        ...
-
     @abstractproperty
     def observation(self) -> pd.DataFrame:
+        ...
+
+    @abstractmethod
+    def get_quote(self, symbol: Symbol) -> float:
+        ...
+
+    @abstractmethod
+    def buy_at(self, symbol: Symbol, amount: float, price: float) -> None:
+        ...
+
+    @abstractmethod
+    def sell_at(self, symbol: Symbol, amount: float, price: float) -> None:
         ...
 
 
@@ -62,15 +64,15 @@ class HistoricalMarket(BaseMarket):
         self._fee_policy = fee_policy
         self._symbols = set(symbols)
 
-    def market_price(self, symbol: Symbol) -> float:
-        return 100 * random.random()
-
     @property
     def observation(self) -> pd.DataFrame:
         return pd.DataFrame()
 
-    def buy(self, symbol: Symbol, amount: float, price: float) -> None:
-        raise FailedToFulfill()
+    def get_quote(self, symbol: Symbol) -> float:
+        return 100 * random.random()
 
-    def sell(self, symbol: Symbol, amount: float, price: float) -> None:
-        raise FailedToFulfill()
+    def buy_at(self, symbol: Symbol, amount: float, price: float) -> None:
+        raise OrderDidNotFill()
+
+    def sell_at(self, symbol: Symbol, amount: float, price: float) -> None:
+        raise OrderDidNotFill()

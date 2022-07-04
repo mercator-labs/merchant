@@ -21,7 +21,7 @@ class MarketError(Exception):
     pass
 
 
-class FailedToFulfill(MarketError):
+class OrderDidNotFill(MarketError):
     pass
 
 
