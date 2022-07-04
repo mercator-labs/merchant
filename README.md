@@ -2,9 +2,7 @@
 
 # merchant
 
-##### COMING SOON (this repo is still in a very early pre prototyping phase)
-
-
+##### COMING SOON (this repo is still in a very early pre prototyping phase)    
 
 ## development
 
