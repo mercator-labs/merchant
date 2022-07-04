@@ -3,3 +3,25 @@
 # merchant
 
 ##### COMING SOON
+
+## development
+
+clone repo
+
+```
+git clone git@github.com:mercator-labs/merchant
+cd merchant
+```
+
+install dependencies
+
+```
+virtualenv .venv
+pip install -e . -r requirements-dev.txt
+```
+
+### testing
+
+```
+pytest .
+```

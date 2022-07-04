@@ -1,8 +1,0 @@
-matplotlib
-mplfinance
-numpy
-pandas
-pandas_ta
-ray[rllib,tune,serve]>=1.13.0
-torch>=1.12.0
-wandb>=0.12.20
