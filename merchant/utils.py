@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from contextlib import contextmanager
 from collections.abc import Generator
+from contextlib import contextmanager
 
 import ray
 
